@@ -4,9 +4,9 @@ public class Contact {
     private  int id;
     private String name;
     private String sdt;
-    private  boolean isCheck;
+    private  int isCheck;
 
-    public Contact(int id, String name, String sdt, boolean isCheck) {
+    public Contact(int id, String name, String sdt, int isCheck) {
         this.id = id;
         this.name = name;
         this.sdt = sdt;
@@ -37,11 +37,11 @@ public class Contact {
         this.sdt = sdt;
     }
 
-    public boolean isCheck() {
+    public int isCheck() {
         return isCheck;
     }
 
-    public void setCheck(boolean check) {
+    public void setCheck(int check) {
         isCheck = check;
     }
 }

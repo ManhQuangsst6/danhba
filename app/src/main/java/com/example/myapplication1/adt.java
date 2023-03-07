@@ -59,15 +59,16 @@ public class adt extends BaseAdapter implements Filterable {
         TextView tvName=v.findViewById(R.id.textView2);
         tvName.setText(contacts.get(i).getSdt());
         CheckBox isdelete=v.findViewById(R.id.checkBox);
-        isdelete.setChecked(contacts.get(i).isCheck());
+        boolean check=contacts.get(i).isCheck()==1?true:false;
+        isdelete.setChecked(check);
         isdelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(isdelete.isChecked()==true){
-                    contacts.get(i).setCheck(true);
+                    contacts.get(i).setCheck(1);
                 }
                 else
-                    contacts.get(i).setCheck(false);
+                    contacts.get(i).setCheck(0);
             }
         });
 
@@ -78,7 +79,7 @@ public class adt extends BaseAdapter implements Filterable {
             public void onClick(View view) {
 
                 Intent intent1=new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("tel:0395533345"));
+                        Uri.parse("tel:"+contacts.get(i).getSdt()));
                 view.getContext().startActivity(intent1);
             }
         });
@@ -87,7 +88,7 @@ public class adt extends BaseAdapter implements Filterable {
             public void onClick(View view) {
 
                 Intent intent1=new Intent(Intent.ACTION_VIEW,
-                        Uri.parse("sms:0395533345"));
+                        Uri.parse("sms:"+contacts.get(i).getSdt()));
                 view.getContext().startActivity(intent1);
             }
         });

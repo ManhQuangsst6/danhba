@@ -53,15 +53,21 @@ public class MainActivity_Add extends AppCompatActivity {
         btnCancel=findViewById(R.id.btnCancel);
         Intent intent=getIntent();
         Bundle bundle=intent.getExtras();
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
         if(bundle!=null){
             int id=bundle.getInt("id");
-            String img=bundle.getString("image");
             String name=bundle.getString("name");
             String phone=bundle.getString("phone");
             etID.setText(String.valueOf(id));
             etFullName.setText(name);
             etPhone.setText(phone);
             btnOk.setText("Edit");
+
             btnOk.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
